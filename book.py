@@ -5,8 +5,7 @@ class Book:
         self.pages = pages
 
     def display_info(self):
-        return f'Title: {self.title}, Author: \
-            {self.author}, Pages: {self.pages}'
+        return f'Title: {self.title}, Author: {self.author}, Pages: {self.pages}'
     
 book1 = Book("1984", "George Orwell", 328)
 book2 = Book("Pride and Prejudice", "Jane Austen", 450)
