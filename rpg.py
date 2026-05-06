@@ -30,3 +30,13 @@ class Archer(Character):
 
     def attack(self):
         print(f"{self.name} shoots an arrow from {self.range} meters away with strength {self.strength}.")
+
+knight = Knight("Sir rocis", 100, 50, 20)
+archer = Archer("Robin Hood", 80, 40, 30)
+
+knight.attack()
+knight.defend(40)
+
+archer.attack()
+archer.defend(40)
+
