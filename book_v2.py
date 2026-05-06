@@ -28,6 +28,15 @@ class Book:
             print(f'You have successfully returned "{self.title}".')
         else:
             print(f'"{self.title}" was not checked out.')
+
+    def update_book_info(self, new_title=None, new_author=None, new_year=None):
+        if new_title:
+            self.title = new_title
+        if new_author:
+            self.author = new_author
+        if new_year:
+            self.year = new_year
+        print(f'Book information updated for "{self.title}".')
         
 book1 = Book("Babel", "R.F. Kuang", 2005)
 book2 = Book("1984","George Orwell", 1949)
