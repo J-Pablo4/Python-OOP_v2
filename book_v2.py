@@ -37,6 +37,9 @@ class Book:
         if new_year:
             self.year = new_year
         print(f'Book information updated for "{self.title}".')
+    
+    def book_summary(self):
+        return f'"{self.title} by {self.author}, published in {self.year}.'
         
 book1 = Book("Babel", "R.F. Kuang", 2005)
 book2 = Book("1984","George Orwell", 1949)
