@@ -22,4 +22,11 @@ class Knight(Character):
             reduced_damage = 0
         self.health -= reduced_damage
         print(f"{self.name} defends with armor and takes {reduced_damage} damage. Health left: {self.health}.")
-        
+
+class Archer(Character):
+    def __init__(self, name, health, strength, range):
+        super().__init__(name, health, strength)
+        self.range = range
+
+    def attack(self):
+        print(f"{self.name} shoots an arrow from {self.range} meters away with strength {self.strength}.")
