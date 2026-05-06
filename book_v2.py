@@ -13,7 +13,7 @@ class Book:
 
     def display_info(self):
         status = self.get_status()
-        return f"Title: {self.title}, Author:{self.author}, Year: {self.year}, Status: {status}"
+        return f"Title: {self.title}, Author: {self.author}, Year: {self.year}, Status: {status}"
     
     def check_out(self):
         if not self.__is_checked_out:
@@ -43,13 +43,18 @@ class Book:
         
 book1 = Book("Babel", "R.F. Kuang", 2005)
 book2 = Book("1984","George Orwell", 1949)
-print(book1.display_info())
-print(book2.display_info())
+book3 = Book("IT", "Stephen King", 1925)
+# print(book1.display_info())
+# print(book2.display_info())
 
-book1.check_out()
-print(book1.display_info())
-book1.check_out()
+# book1.check_out()
+# print(book1.display_info())
+# book1.check_out()
 
-book1.return_book()
-print(book1.display_info())
+# book1.return_book()
+# print(book1.display_info())
+
+print(book3.book_summary())
+book3.update_book_info(new_title="Dark Tower", new_year=1982)
+print(book3.display_info())
 
