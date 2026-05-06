@@ -57,3 +57,7 @@ knight.defend(40)
 archer.attack()
 archer.defend(40)
 
+mage = Mage("Merlin", 60, 20, 100)
+mage.attack()
+mage.cast_spell()
+mage.defend(30)
