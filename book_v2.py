@@ -40,6 +40,21 @@ class Book:
     
     def book_summary(self):
         return f'"{self.title} by {self.author}, published in {self.year}.'
+    
+class Library:
+    def __init__(self):
+        self.collection = []
+
+    def add_book(self,book):
+        self.collection.append(book)
+        print(f'Book "{book.title}" added to the library.')
+
+    def display_books(self):
+        if not self.collection:
+            print("No books in the library.")
+        else:
+            for book in self.collection:
+                print(book.display_info())
         
 book1 = Book("Babel", "R.F. Kuang", 2005)
 book2 = Book("1984","George Orwell", 1949)
@@ -54,7 +69,13 @@ book3 = Book("IT", "Stephen King", 1925)
 # book1.return_book()
 # print(book1.display_info())
 
-print(book3.book_summary())
-book3.update_book_info(new_title="Dark Tower", new_year=1982)
-print(book3.display_info())
+# print(book3.book_summary())
+# book3.update_book_info(new_title="Dark Tower", new_year=1982)
+# print(book3.display_info())
 
+my_library = Library()
+my_library.add_book(book1)
+my_library.add_book(book2)
+my_library.add_book(book3)
+
+my_library.display_books()
