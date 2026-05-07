@@ -19,6 +19,13 @@ class Knight(Character):
         super().__init__(name, health, strength)
         self.armor = armor
 
+    def defend(self, damage):
+        reduced_damage = damage - self.armor
+        if reduced_damage < 0:
+            reduced_damage = 0
+        self.health -= reduced_damage
+        print(f"{self.name} defends with armor and takes {reduced_damage} damage. Remaining health!")
+
 class Mage(Character):
     def __init__(self, name, health, strength, mana):
         super().__init__(name, health, strength)
