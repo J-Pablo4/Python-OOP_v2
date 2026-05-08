@@ -26,6 +26,18 @@ class Knight(Character):
         self.health -= reduced_damage
         print(f"{self.name} defends with armor and takes {reduced_damage} damage. Remaining health!")
 
+clasa Healer(Character):
+    def __init__(self, name, health, strength, healing_power):
+        super().__init__(name, health, strength)
+        self.healing_power = healing_power
+
+    def heal(self, ally):
+        print(f"{self.name} heals {ally.name} for {self.healing_power} health points!")
+        ally.health += self.healing_power
+
+        if ally.health > 100:
+            ally.health = 100
+
 class Mage(Character):
     def __init__(self, name, health, strength, mana):
         super().__init__(name, health, strength)
@@ -73,3 +85,7 @@ archer = Archer("Robin Hood", 90, 15, 25)
 battle_round(knight, mage)
 battle_round(archer, knight)
 battle_round(mage, archer)
+
+healer = Healer("Florence", 60, 5, 30)
+healer.heal(knight)
+print(f"{knight.name}'s health after healing: {knight.health}")
