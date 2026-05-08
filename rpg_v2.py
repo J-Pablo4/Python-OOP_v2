@@ -48,3 +48,7 @@ class Archer(Character):
     def __init__(self, name, health, strength, range):
         super().__init__(name, health, strength)
         self.range = range
+
+    def attack(self):
+        print(f"{self.name} shoots an arrow from {self.range} meters away with {self.strength} strength!")
+        
