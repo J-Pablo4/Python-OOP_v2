@@ -51,4 +51,25 @@ class Archer(Character):
 
     def attack(self):
         print(f"{self.name} shoots an arrow from {self.range} meters away with {self.strength} strength!")
-        
+
+
+# Test classes
+def battle_round(character1, character2):
+    print(f"{character1.name} vs {character2.name}")
+
+    character1.attack()
+    character2.defend(character1.strength)
+
+    if character2.is_alive():
+        character2.attack()
+        character1.defend(character2.strength)
+    
+    print(f"End of round: {character1.name} has {character1.health} health, {character2.name} has {character2.health} health\n")
+
+knight = Knight("Sir Lancelot", 100, 20, 5)
+mage = Mage("Gandalf", 80, 10, 50)
+archer = Archer("Robin Hood", 90, 15, 25)
+
+battle_round(knight, mage)
+battle_round(archer, knight)
+battle_round(mage, archer)
