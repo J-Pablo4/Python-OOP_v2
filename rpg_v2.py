@@ -26,7 +26,7 @@ class Knight(Character):
         self.health -= reduced_damage
         print(f"{self.name} defends with armor and takes {reduced_damage} damage. Remaining health!")
 
-clasa Healer(Character):
+class Healer(Character):
     def __init__(self, name, health, strength, healing_power):
         super().__init__(name, health, strength)
         self.healing_power = healing_power
