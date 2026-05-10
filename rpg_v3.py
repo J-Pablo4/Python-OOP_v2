@@ -36,3 +36,22 @@ class Warrior(Character):
     def __init__(self, name, health, strength, armor):
         super().__init__(name, health, strength)
         self.armor = armor
+        self.power_strike_cooldown = 0
+
+    def defend(self, damage):
+        reduced_damage = damage - self.armor
+        if reduced_damage < 0:
+            reduced_damage = 0
+        self.health -= reduced_damage
+        print(f"{self.name} defends with armor and takes {reduced_damage} damage! Remaining health: {self.health}")
+        if self.health <= 0:
+            print(f"{self.name} has been defeated!")
+
+    def power_strike(self, target):
+        if self.power_strike_cooldown == 0:
+            damage = self.strength * 2
+            target.defend(damage)
+            print(f"{self.name} uses Power Strike on {target.name}, dealing {damage} damage!")
+            self.power_strike_cooldown = 3 # Cooldown for 3 rounds
+        else:
+            print(f"{self.name}'s Power Strike is on cooldown for {self.power_strike_cooldown} more turns.")
