@@ -55,3 +55,31 @@ class Warrior(Character):
             self.power_strike_cooldown = 3 # Cooldown for 3 rounds
         else:
             print(f"{self.name}'s Power Strike is on cooldown for {self.power_strike_cooldown} more turns.")
+
+class Mage(Character):
+    def __init__(self, name, health strength, mana):
+        super().__init__(name, health, strength)
+        self.mana = mana
+        self.shield_active = False
+
+    def cast_spell(self, spell_name, mana_cost, target=None):
+        if self.mana >= mana_cost:
+            self.mana -= mana_cost
+            if spell_name == "fireball":
+                damage = self.strength*1.5
+                if target:
+                    target.defend(damage)
+                    print(f"{self.name} casts Fireball on {target.name}, dealing {damage} damage!")
+            elif spell_name == "shield":
+                self.shield_active = True
+                print(f"{self.name} casts Shield! Damage will be reduced for the next turn.")
+        else:
+            print(f"{self.name} doesn't have enough mana to cast {spell_name}!")
+
+    def defend(self, damage):
+        if self.shield_active:
+            damage /= 2
+            self.shield_active = False
+            print(f"{self.name}'s shield reduces the damage by half!")
+        self.health -= damage
+        print(f"{self.name} takes {damage} damage. Remaining health: {self.health}")
