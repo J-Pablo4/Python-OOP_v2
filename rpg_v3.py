@@ -97,3 +97,9 @@ class Rogue (Character):
         else:
             self.health -= damage
             print(f"{self.name} takes {damage} damage! Remaining health: {self.health}")
+
+    def backstab(self, target):
+        if target.is_alive():
+            damage = strength * 1.8
+            target.defend(damage)
+            print(f"{self.name} uses Backstab om {target.name}, dealing {damage} damage!")
