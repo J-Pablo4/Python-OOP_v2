@@ -103,3 +103,22 @@ class Rogue (Character):
             damage = strength * 1.8
             target.defend(damage)
             print(f"{self.name} uses Backstab om {target.name}, dealing {damage} damage!")
+
+# Battle simulstion
+def battle_simulation(character1, character2):
+    round_counter = 1
+    while character1.is_alive() and character2.is_alive():
+        print(f"---Round {round_counter}---")
+        character1.attack()
+        character2.defend(character1.strength)
+        if character2.is_alive():
+            character2.attack()
+            character1.defend(character2.strength)
+            round_counter += 1
+            print(f"{character1.name} has {character1.health} health. {character2.name} has {character2.health} health. \n")
+
+knight = Warrior("Sir Arthur",150,25,10)
+mage = Mage("Merlin",100,20,50)
+rogue = Rogue("Loki",120,15,0.3)
+
+battle_simulation(knight, mage)
