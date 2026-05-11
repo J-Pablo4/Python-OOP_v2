@@ -1,3 +1,5 @@
+import random
+
 class Character:
     def __init__(self, name, health, strength, experience=0):
         self.name = name
@@ -83,3 +85,15 @@ class Mage(Character):
             print(f"{self.name}'s shield reduces the damage by half!")
         self.health -= damage
         print(f"{self.name} takes {damage} damage. Remaining health: {self.health}")
+
+class Rogue (Character):
+    def __init__(self, name, health, strength, evasion_chance):
+        super().__init__(name, health, strength)
+        self.evasion_chance = evasion_chance
+
+    def defend(self, damage):
+        if random.random() < self.evasion_chance:
+            print(f"{self.name} evades the attack!")
+        else:
+            self.health -= damage
+            print(f"{self.name} takes {damage} damage! Remaining health: {self.health}")
