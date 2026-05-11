@@ -59,7 +59,7 @@ class Warrior(Character):
             print(f"{self.name}'s Power Strike is on cooldown for {self.power_strike_cooldown} more turns.")
 
 class Mage(Character):
-    def __init__(self, name, health strength, mana):
+    def __init__(self, name, health, strength, mana):
         super().__init__(name, health, strength)
         self.mana = mana
         self.shield_active = False
